@@ -8,7 +8,10 @@ export const useModal = () => {
   };
 
   const closeModal = (e: React.MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
-    e.stopPropagation();
+    if (e) {
+      e.stopPropagation();
+    }
+
     setIsOpen(false);
   };
 
