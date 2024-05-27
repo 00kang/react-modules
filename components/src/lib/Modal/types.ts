@@ -13,4 +13,5 @@ export interface ModalProps {
   size: ModalSize;
   modalType?: ModalType;
   closeButtonPosition?: CloseButtonPosition;
+  buttonText: string;
 }

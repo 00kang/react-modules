@@ -13,6 +13,7 @@ export const Modal = ({
   size,
   modalType,
   closeButtonPosition,
+  buttonText,
 }: ModalProps) => {
   if (!isOpen) return null;
 
@@ -34,7 +35,7 @@ export const Modal = ({
         <ModalContent>{children}</ModalContent>
         {!modalType && closeButtonPosition === "bottom" && (
           <DarkButton onClick={onClose} style={{ width: "100%", height: "40px" }}>
-            닫기
+            {buttonText}
           </DarkButton>
         )}
         <ButtonSet modalType={modalType} onClose={onClose} onConfirm={onConfirm} />
