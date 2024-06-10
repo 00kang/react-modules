@@ -3,6 +3,7 @@ import { ModalProps } from "./types";
 
 interface ModalDimProps {
   isOpen: boolean;
+  rootWidth: string;
 }
 
 export const ModalDim = styled.div<ModalDimProps>`
@@ -10,7 +11,7 @@ export const ModalDim = styled.div<ModalDimProps>`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: ${({ rootWidth }) => rootWidth};
   height: 100vh;
   background: rgba(0, 0, 0, 0.35);
   z-index: 1000;
@@ -33,6 +34,7 @@ export const ModalContainer = styled.div<
   border-radius: 8px;
   background: rgba(255, 255, 255, 1);
   color: rgba(0, 0, 0, 1);
+  width: 100%;
 
   ${({ modalPosition, size }) => {
     const sizeMap = {

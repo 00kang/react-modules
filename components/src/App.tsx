@@ -5,6 +5,9 @@ import "./App.css";
 function App() {
   const { isOpen, openModal, closeModal } = useModal();
 
+  const rootElement = document.getElementById("root");
+  const rootWidth = rootElement ? window.getComputedStyle(rootElement).width : "430px";
+
   const handleConfirm = (e: React.MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     console.log("Confirmed");
     closeModal(e);
@@ -13,13 +16,14 @@ function App() {
   return (
     <>
       <Modal
-        modalPosition="center"
+        modalPosition="bottom"
         title="컴포넌트를 어느정도까지 분리 해야할까요? 또 어떤 경우 컴포넌트를 그룹화해서 하나의 컴포넌트처럼 보이게 하는 것이 좋을까요?"
         isOpen={isOpen}
         onClose={closeModal}
         onConfirm={handleConfirm}
         size="large"
         modalType="prompt"
+        rootWidth={rootWidth}
       >
         <div style={{ textAlign: "justify" }}>
           리액트에서의 컴포넌트도 캡슐화 되어 있고, 재사용 및 재구성할 수 있습니다. 리액트를 이용해

@@ -1,7 +1,7 @@
 import { DarkButton, LightButton } from "../common/Button";
-import { ModalContainer, ModalDim, ModalHeader, ModalContent } from "./Modal.style";
-import { ModalProps } from "./types";
 import { ButtonSet } from "./ButtonSet";
+import { ModalContainer, ModalContent, ModalDim, ModalHeader } from "./Modal.style";
+import { ModalProps } from "./types";
 
 export const Modal = ({
   modalPosition,
@@ -14,11 +14,12 @@ export const Modal = ({
   modalType,
   closeButtonPosition,
   buttonText,
+  rootWidth,
 }: ModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <ModalDim isOpen={isOpen} onClick={onClose}>
+    <ModalDim isOpen={isOpen} onClick={onClose} rootWidth={rootWidth}>
       <ModalContainer
         modalPosition={modalPosition}
         size={size}
